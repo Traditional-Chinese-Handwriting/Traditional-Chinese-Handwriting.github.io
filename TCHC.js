@@ -92,9 +92,9 @@ function setPosition(e){
 function draw(e) {
     if(e.buttons!=1) return;
     ctx.beginPath();
-    ctx.lineWidth = 24;
+    ctx.lineWidth = 12;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'white';
+    ctx.strokeStyle = 'black';
     ctx.moveTo(pos.x, pos.y);
     setPosition(e);
     ctx.lineTo(pos.x, pos.y);
@@ -127,7 +127,7 @@ function init() {
     canvas = document.getElementById('canvas');
     rawImage = document.getElementById('canvasimg');
     ctx = canvas.getContext("2d");
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillRect(0,0,280,280);
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mousedown", setPosition);
