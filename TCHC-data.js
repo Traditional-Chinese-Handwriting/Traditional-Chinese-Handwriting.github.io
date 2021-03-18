@@ -144,7 +144,7 @@ export class FMnistData {
 
   nextBatch(batchSize, data, index) {
     const batchImagesArray = new Float32Array(batchSize * IMAGE_SIZE);
-    const batchLabelsArray = new Uint8Array(batchSize * NUM_CLASSES);
+    const batchLabelsArray = new Int32Array(batchSize * NUM_CLASSES);
 
     for (let i = 0; i < batchSize; i++) {
       const idx = index();
