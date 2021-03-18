@@ -103,7 +103,7 @@ function draw(e) {
 }
     
 function erase() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillRect(0,0,280,280);
 }
     
