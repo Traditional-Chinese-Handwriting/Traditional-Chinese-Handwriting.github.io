@@ -84,12 +84,10 @@ export class FMnistData {
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
 
-    var fs = require("fs");
-    var text = fs.readFileSync("./labels.txt");
+    
+    const text = fetch(MNIST_LABELS_PATH);
     var textByLine = text.split("\n")
-    
     var labelsRequest = textByLine.map(myFunction)
-    
     function myFunction(num) {
       const label = [
                        num == '0' ? 1 : 0,
