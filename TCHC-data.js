@@ -85,14 +85,12 @@ export class FMnistData {
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
 
     var textByLine = []
-    var labels_txt = fetch(MNIST_LABELS_PATH)
+    await fetch(MNIST_LABELS_PATH)
                    .then(response => response.text())
                    .then((data) => {
-                     console.log("Data: " + data)
                      textByLine = data.split('\n')
-                     console.log(textByLine)
                    });
-    console.log(textByLine)
+
     var labelsRequest = textByLine.map(myFunction)
     function myFunction(num) {
       const label = [
@@ -103,7 +101,7 @@ export class FMnistData {
       ]
       return label;
     }
-    console.log()
+    console.log(labelsRequest)
 
 
 
