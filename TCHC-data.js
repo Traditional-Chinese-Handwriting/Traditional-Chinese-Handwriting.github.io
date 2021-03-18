@@ -91,7 +91,7 @@ export class FMnistData {
                      console.log(data)
                    });
     var textByLine = labels_txt.split("\n")
-    var labelsRequest = labels_txt.map(myFunction)
+    var labelsRequest = textByLine.map(myFunction)
     function myFunction(num) {
       const label = [
                        num == '0' ? 1 : 0,
