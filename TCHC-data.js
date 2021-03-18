@@ -25,9 +25,9 @@ const NUM_TRAIN_ELEMENTS = Math.floor(TRAIN_TEST_RATIO * NUM_DATASET_ELEMENTS);
 const NUM_TEST_ELEMENTS = NUM_DATASET_ELEMENTS - NUM_TRAIN_ELEMENTS;
 
 const MNIST_IMAGES_SPRITE_PATH =
-    'character_data_8bytes.png';
+    './character_data_8bytes.png';
 const MNIST_LABELS_PATH =
-    'labels.txt';
+    './labels.txt';
 
 /**
  * A class that fetches the sprited MNIST dataset and returns shuffled batches.
@@ -84,13 +84,14 @@ export class FMnistData {
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
 
-    
+    var textByLine = []
     var labels_txt = fetch(MNIST_LABELS_PATH)
                    .then(response => response.text())
                    .then((data) => {
-                     console.log(data)
+                     textByLine.push(data)
+                     console.log(textByLine)
                    });
-    var textByLine = labels_txt.split("\n")
+    
     var labelsRequest = textByLine.map(myFunction)
     function myFunction(num) {
       const label = [
