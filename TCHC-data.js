@@ -55,7 +55,7 @@ export class FMnistData {
         const datasetBytesBuffer =
             new ArrayBuffer(NUM_DATASET_ELEMENTS * IMAGE_SIZE * 4);
 
-        const chunkSize = 5000;
+        const chunkSize = 12;
         canvas.width = img.width;
         canvas.height = chunkSize;
 
