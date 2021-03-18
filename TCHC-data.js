@@ -82,7 +82,26 @@ export class FMnistData {
       img.src = MNIST_IMAGES_SPRITE_PATH;
     });
 
-    const labelsRequest = fetch(MNIST_LABELS_PATH);
+    // const labelsRequest = fetch(MNIST_LABELS_PATH);
+
+    var fs = require("fs");
+    var text = fs.readFileSync("./mytext.txt");
+    var textByLine = text.split("\n")
+    
+    var labelsRequest = textByLine.map(myFunction)
+    
+    function myFunction(num) {
+      const label = [
+                       num == '0' ? 1 : 0,
+                       num == '1' ? 1 : 0,
+                       num == '2' ? 1 : 0,
+                       num == '3' ? 1 : 0
+      ]
+      return label;
+    }
+
+
+
     const [imgResponse, labelsResponse] =
         await Promise.all([imgRequest, labelsRequest]);
 
