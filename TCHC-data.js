@@ -52,7 +52,7 @@ export class FMnistData {
       img.onload = () => {
         img.width = img.naturalWidth;
         img.height = img.naturalHeight;
-        console.log(img)
+        
         const datasetBytesBuffer =
             new ArrayBuffer(NUM_DATASET_ELEMENTS * IMAGE_SIZE * 4);
 
@@ -83,6 +83,7 @@ export class FMnistData {
       img.src = MNIST_IMAGES_SPRITE_PATH;
 
     });
+    console.log(imgRequest)
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
 
