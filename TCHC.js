@@ -84,7 +84,7 @@ async function train(model, data) {
         callbacks:{
                    onEpochEnd: async(epoch, logs) =>{
                      console.log("Epoch: " + epoch + " Loss: " + logs.loss);
-                  }
+                  }}
     });
 }
 
