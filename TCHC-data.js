@@ -108,7 +108,7 @@ export class FMnistData {
     
     fetch(MNIST_IMAGES_SPRITE_PATH)
         .then(res => res.arrayBuffer())
-        .then(res => { console.log(res.arrayBuffer()) });
+        .then(res => { console.log(res) });
 
 
 
