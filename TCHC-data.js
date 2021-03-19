@@ -80,6 +80,7 @@ export class FMnistData {
         resolve();
       };
       img.src = MNIST_IMAGES_SPRITE_PATH;
+      console.log(img)
     });
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
