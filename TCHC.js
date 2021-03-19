@@ -16,7 +16,7 @@ function getModel() {
     model = tf.sequential();
     
     // YOUR CODE HERE
-    model.add(tf.layers.conv2d({inputShape: [50, 50, 1], kernelSize: 5, filters: 100, activation: 'relu'}));
+    model.add(tf.layers.conv2d({inputShape: [50, 50, 1], kernelSize: 2, filters: 5, activation: 'relu'}));
     model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
     model.add(tf.layers.flatten());
     model.add(tf.layers.dropout({rate: 0.5}));
