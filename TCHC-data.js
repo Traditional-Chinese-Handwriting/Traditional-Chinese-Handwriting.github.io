@@ -101,6 +101,7 @@ export class FMnistData {
       ]
       return label;
     }
+    console.log(labelsRequest)
     
 
 
