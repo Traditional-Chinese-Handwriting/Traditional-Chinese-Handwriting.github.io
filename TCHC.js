@@ -19,9 +19,8 @@ function getModel() {
     model.add(tf.layers.conv2d({inputShape: [50, 50, 1], kernelSize: 2, filters: 5, activation: 'relu'}));
     model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
     model.add(tf.layers.flatten());
-    model.add(tf.layers.dense({units: 256, activation: 'relu'}));
     model.add(tf.layers.dropout({rate: 0.5}));
-    model.add(tf.layers.dense({units: 128, activation: 'relu'}));
+    model.add(tf.layers.dense({units: 512, activation: 'relu'}));
     model.add(tf.layers.dropout({rate: 0.5}));
     model.add(tf.layers.dense({units: 4, activation: 'softmax'}));
 
@@ -81,7 +80,10 @@ async function train(model, data) {
         validationData: [testXs, testYs],
         epochs: 10,
         shuffle: true,
-        callbacks: fitCallbacks
+        callbacks: [fitCallbacks,{
+                                  onEpochEnd: async(epoch, logs) =>{
+                                      console.log("Epoch: " + epoch + " Loss: " + logs.loss);
+                                  }]
     });
 }
 
@@ -144,7 +146,7 @@ async function run() {
     const model = getModel();
     tfvis.show.modelSummary({name: 'Model Architecture'}, model);
     await train(model, data);
-    await model.save('downloads://my_model');
+    // await model.save('downloads://my_model');
     init();
     alert("Training is done, try classifying your drawings!");
 }
