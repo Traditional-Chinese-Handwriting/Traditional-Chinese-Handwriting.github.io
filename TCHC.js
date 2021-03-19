@@ -16,13 +16,14 @@ function getModel() {
     model = tf.sequential();
     
     // YOUR CODE HERE
-    model.add(tf.layers.conv2d({inputShape: [28, 28, 1], kernelSize: 3, filters: 10, activation: 'relu'}));
-    model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
-    model.add(tf.layers.conv2d({filters: 20, kernelSize: 3, activation: 'relu'}));
+    model.add(tf.layers.conv2d({inputShape: [50, 50, 1], kernelSize: 2, filters: 5, activation: 'relu'}));
     model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
     model.add(tf.layers.flatten());
+    model.add(tf.layers.dense({units: 256, activation: 'relu'}));
+    model.add(tf.layers.dropout({rate: 0.5}));
     model.add(tf.layers.dense({units: 128, activation: 'relu'}));
-    model.add(tf.layers.dense({units: 10, activation: 'softmax'}));
+    model.add(tf.layers.dropout({rate: 0.5}));
+    model.add(tf.layers.dense({units: 4, activation: 'softmax'}));
 
     
     // Compile the model using the categoricalCrossentropy loss,
@@ -47,9 +48,9 @@ async function train(model, data) {
     // Use the container and metrics defined above as the parameters.
     const fitCallbacks = tfvis.show.fitCallbacks(container, metrics); // YOUR CODE HERE
     
-    const BATCH_SIZE = 512;
-    const TRAIN_DATA_SIZE = 6000;
-    const TEST_DATA_SIZE = 1000;
+    const BATCH_SIZE = 12;
+    const TRAIN_DATA_SIZE = 180;
+    const TEST_DATA_SIZE = 24;
     
     // Get the training batches and resize them. Remember to put your code
     // inside a tf.tidy() clause to clean up all the intermediate tensors.
@@ -57,7 +58,7 @@ async function train(model, data) {
     const [trainXs, trainYs] = tf.tidy(() => {
         const d = data.nextTrainBatch(TRAIN_DATA_SIZE);
         return [
-            d.xs.reshape([TRAIN_DATA_SIZE, 28, 28, 1]),
+            d.xs.reshape([TRAIN_DATA_SIZE, 50, 50, 1]),
             d.labels
         ];
     });// YOUR CODE HERE
@@ -69,7 +70,7 @@ async function train(model, data) {
     const [testXs, testYs] = tf.tidy(() => {
         const d = data.nextTestBatch(TEST_DATA_SIZE);
         return [
-            d.xs.reshape([TEST_DATA_SIZE, 28, 28, 1]),
+            d.xs.reshape([TEST_DATA_SIZE, 50, 50, 1]),
             d.labels
         ];
     });// YOUR CODE HERE
@@ -109,15 +110,13 @@ function erase() {
     
 function save() {
     var raw = tf.browser.fromPixels(rawImage,1);
-    var resized = tf.image.resizeBilinear(raw, [28,28]);
+    var resized = tf.image.resizeBilinear(raw, [50,50]);
     var tensor = resized.expandDims(0);
     
     var prediction = model.predict(tensor);
     var pIndex = tf.argMax(prediction, 1).dataSync();
     
-    var classNames = ["T-shirt/top", "Trouser", "Pullover", 
-                      "Dress", "Coat", "Sandal", "Shirt",
-                      "Sneaker",  "Bag", "Ankle boot"];
+    var classNames = ["人", "工", "智", "慧"];
             
             
     alert(classNames[pIndex]);
