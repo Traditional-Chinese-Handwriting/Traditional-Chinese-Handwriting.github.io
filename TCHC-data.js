@@ -110,7 +110,7 @@ export class FMnistData {
         await Promise.all([imgRequest, labelsRequest]);
     
     this.datasetLabels = labelsResponse;
-    console.log(this.datasetLabels)
+    
     // Create shuffled indices into the train/test set for when we select a
     // random dataset element for training / validation.
     this.trainIndices = tf.util.createShuffledIndices(NUM_TRAIN_ELEMENTS);
@@ -122,8 +122,10 @@ export class FMnistData {
     this.testImages = this.datasetImages.slice(IMAGE_SIZE * NUM_TRAIN_ELEMENTS);
     this.trainLabels =
         this.datasetLabels.slice(0, NUM_CLASSES * NUM_TRAIN_ELEMENTS);
+    console.log(this.trainLabels)
     this.testLabels =
         this.datasetLabels.slice(NUM_CLASSES * NUM_TRAIN_ELEMENTS);
+    console.log(this.testLabels)
   }
 
   nextTrainBatch(batchSize) {
