@@ -62,7 +62,7 @@ async function train(model, data) {
         ];
     });// YOUR CODE HERE
 
-    console.log(trainYs)
+    
     // Get the testing batches and resize them. Remember to put your code
     // inside a tf.tidy() clause to clean up all the intermediate tensors.
     // HINT: Take a look at the MNIST example.
@@ -140,6 +140,7 @@ function init() {
 async function run() {
     const data = new FMnistData();
     await data.load();
+    console.log(data)
     const model = getModel();
     tfvis.show.modelSummary({name: 'Model Architecture'}, model);
     await train(model, data);
