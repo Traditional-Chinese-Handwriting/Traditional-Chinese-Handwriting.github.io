@@ -77,13 +77,13 @@ export class FMnistData {
           }
         }
         this.datasetImages = new Float32Array(datasetBytesBuffer);
-
+        console.log(this.datasetImages)
         resolve();
       };
       img.src = MNIST_IMAGES_SPRITE_PATH;
 
     });
-    console.log(imgRequest)
+
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
 
@@ -158,7 +158,7 @@ export class FMnistData {
       const image =
           data[0].slice(idx * IMAGE_SIZE, idx * IMAGE_SIZE + IMAGE_SIZE);
       batchImagesArray.set(image, i * IMAGE_SIZE);
-      console.log(image)
+      // console.log(image)
 
       const label =
           data[1].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES);
