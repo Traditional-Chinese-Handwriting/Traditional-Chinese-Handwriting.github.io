@@ -109,7 +109,7 @@ export class FMnistData {
     const [imgResponse, labelsResponse] =
         await Promise.all([imgRequest, labelsRequest]);
     
-    this.datasetLabels = labelsResponse;
+    this.datasetLabels =  new Uint8Array(labelsResponse);
     
     // Create shuffled indices into the train/test set for when we select a
     // random dataset element for training / validation.
@@ -159,7 +159,7 @@ export class FMnistData {
       const label =
           data[1].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES);
       batchLabelsArray.set(label, i * NUM_CLASSES);
-      
+
     }
 
     const xs = tf.tensor2d(batchImagesArray, [batchSize, IMAGE_SIZE]);
