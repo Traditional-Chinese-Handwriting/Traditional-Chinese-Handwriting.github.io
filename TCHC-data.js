@@ -77,7 +77,7 @@ export class FMnistData {
           }
         }
         this.datasetImages = new Float32Array(datasetBytesBuffer);
-        console.log(this.datasetImages)
+        // console.log(this.datasetImages)
         resolve();
       };
       img.src = MNIST_IMAGES_SPRITE_PATH;
@@ -106,6 +106,9 @@ export class FMnistData {
     }
     
     
+    fetch(MNIST_IMAGES_SPRITE_PATH)
+        .then(res => res.arrayBuffer())
+        .then(res => { console.log(arrayBuffer) });
 
 
 
