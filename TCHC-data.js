@@ -108,7 +108,7 @@ export class FMnistData {
 
     const [imgResponse, labelsResponse] =
         await Promise.all([imgRequest, labelsRequest]);
-
+    console.log(labelsRequest)
     this.datasetLabels = new Int32Array(labelsResponse);
     
     // Create shuffled indices into the train/test set for when we select a
