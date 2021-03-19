@@ -156,7 +156,7 @@ export class FMnistData {
       const image =
           data[0].slice(idx * IMAGE_SIZE, idx * IMAGE_SIZE + IMAGE_SIZE);
       batchImagesArray.set(image, i * IMAGE_SIZE);
-      console.log(img)
+      console.log(image)
 
       const label =
           data[1].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES);
