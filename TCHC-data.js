@@ -44,6 +44,7 @@ export class FMnistData {
   async load() {
     // Make a request for the MNIST sprited image.
     const img = new Image();
+    console.log(img)
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const imgRequest = new Promise((resolve, reject) => {
