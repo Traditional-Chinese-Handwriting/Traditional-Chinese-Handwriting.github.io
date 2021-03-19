@@ -60,10 +60,9 @@ async function train(model, data) {
             d.xs.reshape([TRAIN_DATA_SIZE, 50, 50, 1]),
             d.labels
         ];
-        console.log(d.labels)
     });// YOUR CODE HERE
 
-    
+    console.log(trainYs)
     // Get the testing batches and resize them. Remember to put your code
     // inside a tf.tidy() clause to clean up all the intermediate tensors.
     // HINT: Take a look at the MNIST example.
