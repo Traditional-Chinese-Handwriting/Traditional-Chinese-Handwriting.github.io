@@ -160,7 +160,7 @@ export class FMnistData {
 
     const xs = tf.tensor2d(batchImagesArray, [batchSize, IMAGE_SIZE]);
     const labels = tf.tensor2d(batchLabelsArray, [batchSize, NUM_CLASSES]);
-    console.log(xs)
+    console.log(batchLabelsArray)
     return {xs, labels};
   }
 }
