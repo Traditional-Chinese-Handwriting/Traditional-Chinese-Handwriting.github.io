@@ -106,9 +106,9 @@ export class FMnistData {
     }
     
     
-    fetch(MNIST_IMAGES_SPRITE_PATH)
-        .then(res => res.arrayBuffer())
-        .then(res => { console.log(res) });
+    // fetch(MNIST_IMAGES_SPRITE_PATH)
+    //     .then(res => res.arrayBuffer())
+    //     .then(res => { console.log(res) });
 
 
 
@@ -128,7 +128,7 @@ export class FMnistData {
     this.testImages = this.datasetImages.slice(IMAGE_SIZE * NUM_TRAIN_ELEMENTS);
     this.trainLabels =
         this.datasetLabels.slice(0, NUM_CLASSES * NUM_TRAIN_ELEMENTS);
-    console.log(this.trainImages)
+    console.log(this.testImages)
     this.testLabels =
         this.datasetLabels.slice(NUM_CLASSES * NUM_TRAIN_ELEMENTS);
     
