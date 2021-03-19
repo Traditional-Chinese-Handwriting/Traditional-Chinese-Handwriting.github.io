@@ -80,10 +80,11 @@ async function train(model, data) {
         validationData: [testXs, testYs],
         epochs: 10,
         shuffle: true,
-        callbacks: (fitCallbacks,{
-                                  onEpochEnd: async(epoch, logs) =>{
-                                      console.log("Epoch: " + epoch + " Loss: " + logs.loss);
-                                  })
+        callbacks: fitCallbacks,
+        callbacks:{
+                   onEpochEnd: async(epoch, logs) =>{
+                     console.log("Epoch: " + epoch + " Loss: " + logs.loss);
+                  }
     });
 }
 
