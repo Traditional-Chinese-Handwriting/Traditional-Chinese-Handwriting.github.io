@@ -60,6 +60,7 @@ async function train(model, data) {
             d.xs.reshape([TRAIN_DATA_SIZE, 50, 50, 1]),
             d.labels
         ];
+        console.log(d.labels)
     });// YOUR CODE HERE
 
     
