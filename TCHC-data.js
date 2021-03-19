@@ -19,7 +19,7 @@ const IMAGE_SIZE = 2500;
 const NUM_CLASSES = 4;
 const NUM_DATASET_ELEMENTS = 204;
 
-const TRAIN_TEST_RATIO = 1 / 7;
+const TRAIN_TEST_RATIO = 2 / 17;
 
 const NUM_TRAIN_ELEMENTS = Math.floor(TRAIN_TEST_RATIO * NUM_DATASET_ELEMENTS);
 const NUM_TEST_ELEMENTS = NUM_DATASET_ELEMENTS - NUM_TRAIN_ELEMENTS;
@@ -122,10 +122,10 @@ export class FMnistData {
     this.testImages = this.datasetImages.slice(IMAGE_SIZE * NUM_TRAIN_ELEMENTS);
     this.trainLabels =
         this.datasetLabels.slice(0, NUM_CLASSES * NUM_TRAIN_ELEMENTS);
-    console.log(this.trainLabels)
+    
     this.testLabels =
         this.datasetLabels.slice(NUM_CLASSES * NUM_TRAIN_ELEMENTS);
-    console.log(this.testLabels)
+    
   }
 
   nextTrainBatch(batchSize) {
@@ -163,7 +163,7 @@ export class FMnistData {
 
     const xs = tf.tensor2d(batchImagesArray, [batchSize, IMAGE_SIZE]);
     const labels = tf.tensor2d(batchLabelsArray, [batchSize, NUM_CLASSES]);
-    console.log(batchLabelsArray)
+    console.log(data[1])
     return {xs, labels};
   }
 }
