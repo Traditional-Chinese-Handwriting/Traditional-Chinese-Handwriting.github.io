@@ -80,7 +80,7 @@ export class FMnistData {
         resolve();
       };
       img.src = MNIST_IMAGES_SPRITE_PATH;
-      console.log(img)
+
     });
 
     // const labelsRequest = fetch(MNIST_LABELS_PATH);
@@ -111,7 +111,7 @@ export class FMnistData {
         await Promise.all([imgRequest, labelsRequest]);
     
     this.datasetLabels =  new Uint8Array(labelsResponse.flat());
-    console.log(this.datasetLabels)
+    
     // Create shuffled indices into the train/test set for when we select a
     // random dataset element for training / validation.
     this.trainIndices = tf.util.createShuffledIndices(NUM_TRAIN_ELEMENTS);
@@ -156,6 +156,7 @@ export class FMnistData {
       const image =
           data[0].slice(idx * IMAGE_SIZE, idx * IMAGE_SIZE + IMAGE_SIZE);
       batchImagesArray.set(image, i * IMAGE_SIZE);
+      console.log(img)
 
       const label =
           data[1].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES);
