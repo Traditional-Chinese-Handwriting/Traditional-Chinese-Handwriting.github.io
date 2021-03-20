@@ -104,7 +104,7 @@ function draw(e) {
     
 function erase() {
     ctx.fillStyle = "white";
-    ctx.fillRect(0,0,280,280);
+    ctx.fillRect(0,0,300,300);
 }
     
 function save() {
@@ -126,7 +126,7 @@ function init() {
     rawImage = document.getElementById('canvasimg');
     ctx = canvas.getContext("2d");
     ctx.fillStyle = "white";
-    ctx.fillRect(0,0,280,280);
+    ctx.fillRect(0,0,300,300);
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mousedown", setPosition);
     canvas.addEventListener("mouseenter", setPosition);
