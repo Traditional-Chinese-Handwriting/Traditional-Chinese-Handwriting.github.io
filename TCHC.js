@@ -85,8 +85,8 @@ async function train(model, data) {
 }
 
 function setPosition(e){
-    pos.x = e.clientX;
-    pos.y = e.clientY;
+    pos.x = e.clientX-100;
+    pos.y = e.clientY-100;
 }
     
 function draw(e) {
@@ -104,7 +104,7 @@ function draw(e) {
     
 function erase() {
     ctx.fillStyle = "white";
-    ctx.fillRect(0,0,300,300);
+    ctx.fillRect(0,0,280,280);
 }
     
 function save() {
@@ -126,7 +126,7 @@ function init() {
     rawImage = document.getElementById('canvasimg');
     ctx = canvas.getContext("2d");
     ctx.fillStyle = "white";
-    ctx.fillRect(0,0,300,300);
+    ctx.fillRect(0,0,280,280);
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mousedown", setPosition);
     canvas.addEventListener("mouseenter", setPosition);
