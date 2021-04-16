@@ -146,7 +146,7 @@ async function run() {
     await train(model, data);
     // await model.save('downloads://my_model');
     init();
-    alert("Training is done, try classifying your drawings!");
+    alert("模型已訓練完成, 你/妳可以開始辨識手寫字體!");
 }
 
 document.addEventListener('DOMContentLoaded', run);
